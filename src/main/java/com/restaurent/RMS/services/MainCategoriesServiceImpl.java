@@ -76,7 +76,7 @@ public class MainCategoriesServiceImpl implements MainCategoriesService {
     @Override
     public void mainCategory_deleteById(Long id) {
         MainCategories mainCategories = mainCategoriesRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Main Category not found with id:"+id));
+                .orElseThrow(() -> new ResourceNotFoundException("Main Category details not found with id:"+id));
 
         mainCategoriesRepository.delete(mainCategories);
 
