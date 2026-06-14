@@ -45,5 +45,14 @@ jobs:
           script: |
             docker pull kajagoban/restaurant-management-system:latest
             docker rm -f restaurant-app || true
-            docker run -d --name restaurant-app -p 8089:8089 --restart unless-stopped kajagoban/restaurant-management-system:latest
+            docker run -d \
+            --name restaurant-app \
+            --restart unless-stopped \
+            -p 8089:8089 \
+            -e DB_URL="${{ secrets.DB_URL }}" \
+            -e DB_USERNAME="${{ secrets.DB_USERNAME }}" \
+            -e DB_PASSWORD="${{ secrets.DB_PASSWORD }}" \
+            -e JWT_SECRET="${{ secrets.JWT_SECRET }}" \
+            -e AZURE_STORAGE_CONNECTION_STRING="${{ secrets.AZURE_STORAGE_CONNECTION_STRING }}" \
+             kajagoban/restaurant-management-system:latest
             docker ps
