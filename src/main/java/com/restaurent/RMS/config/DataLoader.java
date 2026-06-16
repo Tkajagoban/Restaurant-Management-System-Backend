@@ -62,7 +62,7 @@ public class DataLoader implements CommandLineRunner {
         User user = new User();
         user.setAddress("Near the kalikovil thavady north kokuvil.");
         user.setCity("Kokuvil");
-        user.setEmail("sgicrms15@gmail.com");
+        user.setEmail("tkajagoban19@gmail.com");
         user.setFirstName("owner");
         user.setLastName("koban");
         user.setNic("200001801396");
@@ -74,7 +74,7 @@ public class DataLoader implements CommandLineRunner {
         User user2 = new User();
         user2.setAddress("Mullaitheevu.");
         user2.setCity("Murasumoottai");
-        user2.setEmail("tkajagoban19@gmail.com");
+        user2.setEmail("sgicrms15@gmail.com");
         user2.setFirstName("Kj");
         user2.setLastName("koban");
         user2.setNic("201020384643");
@@ -84,13 +84,13 @@ public class DataLoader implements CommandLineRunner {
         userRepository.save(user2);
 
         User user3 = new User();
-        user3.setAddress("Vadamaratchi.");
-        user3.setCity("Karaveddi");
-        user3.setEmail("nilusana07gobalakrishnar@gmail.com");
-        user3.setFirstName("Nilooshana");
+        user3.setAddress("kalmunai.");
+        user3.setCity("natpitty");
+        user3.setEmail("kalainilavan2002@gmail.com");
+        user3.setFirstName("kaja");
         user3.setLastName("Jenagan");
         user3.setNic("201645384643");
-        user3.setPassword(bCryptPasswordEncoder.encode("Niloo1234@"));
+        user3.setPassword(bCryptPasswordEncoder.encode("kalai1234@"));
         user3.setPhoneNumber("0721880587");
         user3.setRole(stewardRole);
         userRepository.save(user3);
