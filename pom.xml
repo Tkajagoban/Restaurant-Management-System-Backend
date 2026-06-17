@@ -60,11 +60,6 @@
             <artifactId>spring-boot-starter-mail</artifactId>
         </dependency>
 
-		<dependency>
-			<groupId>com.azure</groupId>
-			<artifactId>azure-storage-blob</artifactId>
-			<version>12.25.0</version>
-		</dependency>
 
         <dependency>
 			<groupId>com.mysql</groupId>
@@ -106,6 +101,13 @@
             <artifactId>mapstruct</artifactId>
             <version>1.5.5.Final</version>
         </dependency>
+
+		<dependency>
+			<groupId>com.cloudinary</groupId>
+			<artifactId>cloudinary-http44</artifactId>
+			<version>1.39.0</version>
+		</dependency>
+
         <dependency>
             <groupId>io.jsonwebtoken</groupId>
             <artifactId>jjwt-api</artifactId>

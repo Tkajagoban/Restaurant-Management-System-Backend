@@ -2,7 +2,8 @@ package com.restaurent.RMS.controllers;
 
 import com.restaurent.RMS.dtos.request.FoodRequestDto;
 import com.restaurent.RMS.dtos.response.FoodResponseDto;
-import com.restaurent.RMS.services.AzureImageService;
+//import com.restaurent.RMS.services.AzureImageService;
+import com.restaurent.RMS.services.CloudinaryImageService;
 import com.restaurent.RMS.services.FoodService;
 import com.restaurent.RMS.utils.EndpointBundle;
 import com.restaurent.RMS.utils.ResponseWrapper;
@@ -28,7 +29,8 @@ import java.util.List;
 public class FoodController {
 
     private final FoodService foodService;
-    private final AzureImageService azureImageService;
+   // private final AzureImageService azureImageService;
+   private final CloudinaryImageService cloudinaryImageService;
 
 
     @GetMapping(EndpointBundle.FOODS)
@@ -79,7 +81,9 @@ public class FoodController {
 
         // Upload image only if provided
         if (image != null && !image.isEmpty()) {
-            imageUrl = azureImageService.uploadImage(image);
+            //imageUrl = azureImageService.uploadImage(image);
+            imageUrl = cloudinaryImageService.uploadImage(image);
+
         }
 
         // Create DTO and set uploaded image URL
@@ -142,7 +146,8 @@ public class FoodController {
 
         // Upload new image only if provided
         if (image != null && !image.isEmpty()) {
-            imageUrl = azureImageService.uploadImage(image);  // <- upload and get URL
+          //  imageUrl = azureImageService.uploadImage(image);  // <- upload and get URL
+            imageUrl = cloudinaryImageService.uploadImage(image);
         }
 
         FoodRequestDto dto = new FoodRequestDto();

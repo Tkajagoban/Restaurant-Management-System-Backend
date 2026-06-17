@@ -2,6 +2,6 @@ package com.restaurent.RMS.services;
 
 import org.springframework.web.multipart.MultipartFile;
 
-public interface AzureImageService {
+public interface CloudinaryImageService {
     String uploadImage(MultipartFile file);
 }

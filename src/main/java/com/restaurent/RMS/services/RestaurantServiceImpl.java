@@ -26,7 +26,7 @@ public class RestaurantServiceImpl implements RestaurantService {
     private RestaurantMapper mapper;
 
     @Autowired
-    private AzureImageService azureImageService;
+    private  CloudinaryImageService cloudinaryImageService;
     @Override
     public RestaurantResponseDto updateRestaurant(
             Long id,
@@ -38,7 +38,7 @@ public class RestaurantServiceImpl implements RestaurantService {
 
         // Upload image if provided
         if (logoImage != null && !logoImage.isEmpty()) {
-            String imageUrl = azureImageService.uploadImage(logoImage);
+            String imageUrl = cloudinaryImageService.uploadImage(logoImage);
             restaurant.setLogoImage(imageUrl);
         }
 
@@ -69,7 +69,7 @@ public class RestaurantServiceImpl implements RestaurantService {
 
         String logoImageUrl = null;
         if (logoImage != null && !logoImage.isEmpty()) {
-            logoImageUrl = azureImageService.uploadImage(logoImage);
+            logoImageUrl = cloudinaryImageService.uploadImage(logoImage);
         }
         Restaurant restaurant = mapper.toEntity(restaurantRequestDto);
         restaurant.setLogoImage(logoImageUrl);

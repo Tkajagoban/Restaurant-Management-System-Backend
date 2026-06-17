@@ -3,7 +3,7 @@ package com.restaurent.RMS.controllers;
 import com.restaurent.RMS.dtos.request.RestaurantRequestDto;
 import com.restaurent.RMS.dtos.response.RestaurantResponseDto;
 import com.restaurent.RMS.enums.RestApiResponseStatusCodes;
-import com.restaurent.RMS.services.AzureImageService;
+import com.restaurent.RMS.services.CloudinaryImageService;
 import com.restaurent.RMS.services.RestaurantService;
 import com.restaurent.RMS.utils.EndpointBundle;
 import com.restaurent.RMS.utils.ResponseWrapper;
@@ -16,9 +16,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import tools.jackson.databind.ObjectMapper;
 
-import java.io.IOException;
 import java.util.List;
 
 @RestController
@@ -28,8 +26,8 @@ public class RestaurantController {
 
     @Autowired
     private RestaurantService restaurantService;
-    private final AzureImageService azureImageService;
-
+   // private final AzureImageService azureImageService;
+   private final CloudinaryImageService cloudinaryImageService;
     @PostMapping(value="/added", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<ResponseWrapper<RestaurantResponseDto>> createRestaurant(
             @Valid @ModelAttribute RestaurantRequestDto dto,
@@ -38,7 +36,9 @@ public class RestaurantController {
         // Upload image to Azure if provided
         String imageUrl = null;
         if (logoImage != null && !logoImage.isEmpty()) {
-            imageUrl = azureImageService.uploadImage(logoImage);
+          //  imageUrl = azureImageService.uploadImage(logoImage);
+            imageUrl = cloudinaryImageService.uploadImage(logoImage);
+
         }
 
 
