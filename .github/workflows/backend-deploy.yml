@@ -53,6 +53,8 @@ jobs:
             -e DB_USERNAME="${{ secrets.DB_USERNAME }}" \
             -e DB_PASSWORD="${{ secrets.DB_PASSWORD }}" \
             -e JWT_SECRET="${{ secrets.JWT_SECRET }}" \
-            -e AZURE_STORAGE_CONNECTION_STRING="${{ secrets.AZURE_STORAGE_CONNECTION_STRING }}" \
+            -e CLOUDINARY_CLOUD_NAME="${{ secrets.CLOUDINARY_CLOUD_NAME }}" \
+            -e CLOUDINARY_API_KEY="${{ secrets.CLOUDINARY_API_KEY }}" \
+            -e CLOUDINARY_API_SECRET="${{ secrets.CLOUDINARY_API_SECRET }}" \
              kajagoban/restaurant-management-system:latest
             docker ps
